@@ -11,6 +11,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import 'swiper/dist/css/swiper.css'
 import 'lib-flexible/flexible.js'
 import './assets/css/common.css'
+import './assets/css/function.css'
 import animated from 'animate.css'
 import store from './store'
 

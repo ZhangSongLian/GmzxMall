@@ -9,8 +9,11 @@ const getters = {
     //商城
     goodsList:state => state.goodlist.goodsList,
     bannerList:state => state.goodlist.bannerList,
-    //详情页
+    //商品详情页
     detailList:state => state.goodlist.detailList,
+    //文章详情页
+    articleInfo:state => state.article.articleInfo,
+
     //购物车
     cartList:state => state.cart.cartList,
     cartInfo:state => state.cart.cartInfo,

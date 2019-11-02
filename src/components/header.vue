@@ -1,11 +1,7 @@
 <template>
 	<div>
-		<div class="head">
-			<h3>{{title}}</h3>
-		</div>
 		<van-nav-bar
 		  :title="title"
-		  left-arrow
 		  @click-left="onClickLeft"
 		/>
 	</div>
@@ -38,16 +34,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.head {
-	position: fixed;
-	left: 0;
-	top: 0;
-	z-index: 999;
-	width: 100%;
-	height: 85px;
-	background: #fff;
-	line-height: 85px;
-	text-align: center;
-	
-}
+
 </style>

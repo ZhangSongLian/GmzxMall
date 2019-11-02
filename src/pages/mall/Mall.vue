@@ -49,7 +49,6 @@ export default {
 		list(){
 			return this.$store.state.goodlist.goodsList
 		},
-
 		// 价格销量排序
 		orderListSort(){
 			let list = [...this.list]; //(...)展开运算符可以展开数组
@@ -64,7 +63,6 @@ export default {
 					list = list.sort((a,b) => b.price - a.price)
 				}
 			}
-			// console.log(list)
 			return list;
 		}
 	},

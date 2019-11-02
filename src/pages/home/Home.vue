@@ -11,7 +11,7 @@
             <swiper-slide v-for="(news,index) in newsList" :key="index">
                 <section class="swiper-box">
                     <ul>
-                        <li v-for="item in news.list" @click="articleDetail(item.id)" class="item">
+                        <li v-for="item in news.list" @click="articleDetail($router,item.id)" class="item">
                            <div class="diary-top">
                                 <div class="left">
                                     <div class="head-port">
@@ -63,8 +63,11 @@ export default {
                 this.$store.state.home.newsPrevIndex = this.swiper.previousIndex //返回上一个活动块的索引，切换前的索引
                 let data = await this.$store.dispatch('getHomeList', this.newsList[this.homeNewsIndex])
             },
-        articleDetail(id){
-             this.$router.push({name: '文章详情', params: {id: id}})
+            
+        //跳转到详情页
+        articleDetail(route,id){
+            //  this.$router.push({name: '文章详情', params: {id: id}})
+            route.push('/Article/'+id)
         }
    },
 

@@ -73,8 +73,6 @@ Vue.use(Router)
       meta: {},
       component: (resolve) => require(['@/pages/Article/index'], resolve)
     },
-   
-    
     {
       path: '/detail/:id',
       name: '商品详情页',

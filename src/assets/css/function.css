@@ -28,11 +28,10 @@
 
 
 /*文字排版、颜色*/
-.f12 { font-size:12px }
-.f14 { font-size:14px }
-.f16 { font-size:16px }
-.f18 { font-size:18px }
 .f20 { font-size:20px }
+.f24 { font-size:24px }
+.f26 { font-size:26px }
+.f28 { font-size:28px }
 .fb { font-weight:bold }
 .fn { font-weight:normal }
 .t2 { text-indent:2em }
@@ -60,12 +59,14 @@
 .wp { /* 保持空白序列*/
     overflow:hidden;text-align:left;white-space:pre-wrap;word-wrap:break-word;word-break:break-all;
 }
+/*单行文本溢出隐藏*/
 .wes { /* 多出部分用省略号表示 , 用于一行 */
     overflow:hidden;
     word-wrap:normal;
     white-space:nowrap;
     text-overflow:ellipsis;
 }
+/* 多行文本溢出隐藏*/
 .wes-2 { /* 适用于webkit内核和移动端 */
     display: -webkit-box;
     -webkit-box-orient: vertical;
