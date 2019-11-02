@@ -44,7 +44,6 @@ Vue.use(Router)
       name:"购物车",
       component: layout,
       redirect:'/',
-      meta: {},  
       children:[
         {
           path:'/',
@@ -58,12 +57,11 @@ Vue.use(Router)
       name:"个人中心",
       component: layout,
       redirect:'/',
-      meta: {},
       children:[
         {
           path:'/',
           component: (resolve) => require(['@/pages/my/My'], resolve),
-          name:"购物车"
+          name:"个人中心"
         }
       ]   
      
