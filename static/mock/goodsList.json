@@ -1,0 +1,64 @@
+{
+	"goodsList":[
+		{
+		"id":1,
+		"name":"冰点四肢脱毛",
+		"price":"99",
+		"oldprice":"666",
+		"sales":"1999",
+		"goodsimgs": "https://cdn.gmzx.com/images/wxapp/products/banner/tuoMao.jpg",
+		"checked":"true"
+		},
+		{
+		"id":2,
+		"name":"无针水光",
+		"price":"666",
+		"oldprice":"999",
+		"sales":"3999",
+		"goodsimgs": "https://cdn.gmzx.com/images/wxapp/products/banner/wuZhengShuiGuang.jpg"
+		},
+		{
+		"id":3,
+		"name":"BOTOX除皱针单部位",
+		"price":"1999",
+		"oldprice":"1666",
+		"sales":"199",
+		"goodsimgs": "https://cdn.gmzx.com/images/wxapp/products/banner/zhuShe/BOTOXChuZhou.jpg"
+		},
+		{
+		"id":4,
+		"name":"冰点四肢脱毛",
+		"price":"99",
+		"oldprice":"1666",
+		"goodsimgs": "https://cdn.gmzx.com/images/wxapp/products/banner/tuoMao.jpg"
+		},
+		{
+		"id":5,
+		"name":"无针水光",
+		"price":"999",
+		"oldprice":"666",
+		"sales":"1998",
+		"goodsimgs": "https://cdn.gmzx.com/images/wxapp/products/banner/wuZhengShuiGuang.jpg"
+		},
+		{
+		"id":6,
+		"name":"BOTOX瘦脸针单部位",
+		"price":"1999",
+		"oldprice":"1666",
+		"sales":"188",
+		"goodsimgs": "https://cdn.gmzx.com/images/wxapp/products/banner/zhuShe/BOTOXChuZhou.jpg"
+		}
+				
+	],
+	"bannerList":[
+		{
+			"id":1,
+			"imgs":"https://wx-gmzx.oss-cn-shenzhen.aliyuncs.com/images/wxapp/products/banner/doctor.jpg"
+		},
+		{
+			"id":2,
+			"imgs":"https://wx-gmzx.oss-cn-shenzhen.aliyuncs.com/images/wxapp/products/banner/huanJing.jpg"
+		}
+	]
+
+}

@@ -1,0 +1,122 @@
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+}
+html,
+body,
+#app {
+  width: 100%;
+  /*height: 100%;
+  min-height: 1080px;*/
+  /*overflow-x: hidden;*/
+
+ /*padding-bottom: 115px;*/
+  background-color: #f5f5f5;
+  font-family: "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue",
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  font-weight: 400;
+
+}
+
+/*#app {
+	 margin:40px 0 115px 0;
+}*/
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #323232;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+img {
+  border: none;
+}
+
+.scrollX-hidden {
+  overflow-x: hidden;
+}
+
+.scrollY-overlay {
+  overflow-y: hidden !important;
+}
+.scrollY-overlay:hover {
+  overflow-y: auto;
+  overflow-y: overlay !important;
+}
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.gray {
+  color: #969ba3;
+}
+
+.red {
+  color: #ed424b;
+}
+
+.blue {
+  color: #4284ed;
+}
+
+.text-line-comm {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.no-more {
+    line-height: 32px;
+    text-align: center;
+}
+
+.clearfix:after, .clearfix:before {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+ /*单行文本溢出*/
+.ellipsis {
+	white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+ /*多行文本溢出*/
+.mult_line_ellipsis{
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+}
+
