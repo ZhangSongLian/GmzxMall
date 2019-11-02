@@ -1,6 +1,6 @@
 # GmzxMall
 
-> A Vue.js project
+> 一个基于vue2.0实现的移动端商城(vue+vuex+vue-router+vue-axios+webpack)
 
 ## Build Setup
 
