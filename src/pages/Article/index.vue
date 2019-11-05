@@ -1,8 +1,7 @@
 <template>
     <article class="article-wrapper">
         <ArrowHeader :title="title"></ArrowHeader>
-
-        <h2 style="padding:15px">ID:{{id}}</h2>
+        <!-- <h2 style="padding:15px">ID:{{id}}</h2> -->
         <div class="info df-sb">
             <div class="info-a">
                 <div class="avatar bg-cover-all" :style="{ backgroundImage: `url(${articleInfo.headimg})`}"></div>
@@ -11,12 +10,11 @@
                     <time>11小时前</time>
                 </div>
             </div>
-            <!-- <div class="like-box" 
-                :class="articleInfo.attention?'like-n border-half':'like-y'"
+            <div class="like-box" 
+                :class="articleInfo.attention?'like-n':'like-y'"
                 @click="articleInfo.attention = !articleInfo.attention">
-                 {{articleInfo.attention?'已关注':'关注'}}
-             </div>  -->
-            <div class="like-box like-y" :class="">关注</div>
+                {{articleInfo.attention?'已关注':'关注'}}
+            </div>
         </div>
         <div class="content">
              <img :src="articleInfo.images" alt="">
@@ -74,7 +72,6 @@
         async created() {
            await this.getArticle()
         },
-        
         //   async created () {
         //     await this.$store.dispatch('getArticle', {id: this.$route.params.id})
         // },
@@ -120,6 +117,7 @@
             }
             .like-n {
                 color: #bbb;
+                border: 1px solid #fff;
             }
         }
 

@@ -74,15 +74,19 @@ export default {
                 this.username_msg="";
             }
             if(this.username_msg) return
+
             if(!this.password){
-                this.password_msg="请输入密码"
-            }else if(this.password && this.password != "123456"){
+                this.password_msg="请输入密码";
+            }else if(this.password&&this.password != "123456"){
                  this.password_msg="请输入密码:123456"
             }else {
                 this.password_msg="";
             }
+
             if(this.password_msg) return;
+
             this.$toast.loading('加载中');
+
             try {
                 await this.$store.dispatch('login', {
                     username: this.username,
@@ -92,7 +96,8 @@ export default {
                  console.log(e)
             }
             this.$toast.clear();
-            this.$emit('close')
+
+            this.$emit('close');
         }
 		
     },

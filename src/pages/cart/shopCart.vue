@@ -47,7 +47,7 @@
 	import axios from 'axios' 
 	import { mapGetters } from 'vuex'
 	import HeaderNav from '../../components/header'
-	import { SubmitBar,Checkbox,CheckboxGroup,Toast} from 'vant';
+	import { SubmitBar,Checkbox,CheckboxGroup,Toast,Dialog } from 'vant';
 
 	export default {
 		name:"shopCart",
@@ -56,7 +56,8 @@
 		    	[SubmitBar.name]:SubmitBar,
 		    	[Checkbox.name]:Checkbox,
 		    	[CheckboxGroup.name]:CheckboxGroup,
-		    	[Toast.name]:Toast
+				[Toast.name]:Toast,
+				[Dialog.name]:Dialog
 		    },
 		    
 		data(){
@@ -103,8 +104,15 @@
 				}
 			},
 			del(index){
-				this.cartList.splice(index,1);
-				Toast('删除成功');
+				Dialog.confirm({
+				title: '提示',
+				message: '确定移除该商品'
+				}).then(() => {
+					this.cartList.splice(index,1);
+					Toast('删除成功');
+				}).catch(() => {
+				// on cancel
+				});	
 			},
 			// 全选
 			checkAll(ev) {

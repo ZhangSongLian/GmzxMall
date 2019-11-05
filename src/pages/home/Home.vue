@@ -175,7 +175,4 @@ export default {
             }
         }
     }
- 
-
-
 </style>

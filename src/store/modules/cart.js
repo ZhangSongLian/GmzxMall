@@ -14,7 +14,6 @@ const cart = {
             console.log(dict)
             return dict
           }
-          
        },
        mutations: {
         //添加到购物车

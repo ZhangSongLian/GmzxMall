@@ -119,13 +119,12 @@ Vue.use(Router)
     routes: Routers
 };
 const router = new Router(RouterConfig);
-// 	 导航守卫 beforeEnter 守卫
+// 	 导航守卫 beforeEnter 全局前置守卫
 //  to: Route: 即将要进入的目标 路由对象
 //	from: Route: 当前导航正要离开的路由
 //	next: Function: 一定要调用该方法来 resolve 这个钩子。执行效果依赖 next 方法的调用参数。
 
-  //登录拦截
-  // 通过在beforeEach钩子函数来判断是否登录
+  //登录拦截 通过在beforeEach钩子函数来判断是否登录
  router.beforeEach((to, from, next) => {
   if (to.meta.login) { //判断前往的界面是否需要登陆
     if (store.state.user.user.name) { // 是否已经登陆
@@ -140,6 +139,7 @@ const router = new Router(RouterConfig);
   }
 });
 
+// 全局后置钩子
 router.afterEach((to, from) => {
   window.document.title = to.name;
   window.scrollTo(0, 0);

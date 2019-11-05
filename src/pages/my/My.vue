@@ -6,14 +6,13 @@
                 <img :src="user.name?user.headImg:images" class="info-img" alt="">
                 <div v-if="user.name">
                     <h4 class="info-name">{{user.name}}</h4> 
-                    <p class="info-text">点击绑定会员卡</p>	
+                    <!-- <p class="info-text">点击绑定会员卡</p>	 -->
                 </div>
                 <div v-else>
                     <h4 class="info-name" @click="login">点击登录</h4> 
                 </div>
             </div>
         </section>
-        
         <section class="lists">
                 <div class="list-items" v-for="(item,index) in resList" @click=" skipOrder(index)">
                     <van-icon :name="item.icon" dot  size="22px"/>
@@ -21,8 +20,7 @@
                 </div>
         </section>
         <my-content v-for="item in posts":content="item" :key="item.id"></my-content>  
-    
-        
+        <div class='esc' v-if="user.name" @click="esc">退出登录</div>
     </div>
 </template>
 
@@ -31,9 +29,7 @@
 import { mapGetters } from 'vuex'
 import HeaderNav from '../../components/header'
 import MyContent from './components/Content'
-
-import Login from '../../components/Login'
-import { Icon } from 'vant';
+import { Icon ,Button } from 'vant';
 
 export default {
     name:'Mall',
@@ -41,9 +37,8 @@ export default {
     components:{
         HeaderNav,
         MyContent,
-      
-        Login,
         [Icon.name]:Icon,
+        [Button.name]:Button
     },
 
     data(){
@@ -73,6 +68,12 @@ export default {
             // 命名路由
             this.$router.push({name: '订单列表', params: {type: index}})
          },
+
+        //退出登录
+        esc(){
+            this.$store.dispatch('esc')
+        }
+
     },
    
     computed: {
@@ -113,7 +114,6 @@ export default {
         }
     }
 }
-
 .lists {
     padding: 20px;
     margin-bottom: 10px;
@@ -126,6 +126,14 @@ export default {
         text-align: center;
         font-size: 28px;
     }
+}
+
+.esc {
+    background: #fff;
+    text-align: center;
+    line-height: 85px;
+    margin-top: 45px;
+    color: #f85959
 }
 
     

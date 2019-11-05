@@ -1,6 +1,8 @@
 {
     "list":[
         {
+            "attention": false,
+            "islike": true,
             "name": "Brenda Davis",
             "headimg":"https://cdn.gmzx.com/images/phone/new-phone/head-port.jpg",
             "comment": 108,
@@ -13,6 +15,8 @@
             "title": "眼部"
         },
         {
+            "attention": false,
+            "islike": true,
             "name": "Brenda Davis",
             "headimg":"https://cdn.gmzx.com/images/phone/new-phone/head-port.jpg",
             "comment": 108,
@@ -25,6 +29,8 @@
             "title": "鼻部"
         },
         {
+            "attention": false,
+            "islike": true,
             "name": "Brenda Davis",
             "headimg":"https://cdn.gmzx.com/images/phone/new-phone/head-port.jpg",
             "comment": 108,
@@ -37,6 +43,8 @@
             "title": "胸部"
         },
         {
+            "attention": false,
+            "islike": true,
             "name": "Brenda Davis",
             "headimg":"https://cdn.gmzx.com/images/phone/new-phone/head-port.jpg",
             "comment": 108,

@@ -30,9 +30,7 @@ const home = {
             // Vue.set(object, key, value) - 适用于添加单个属性
             Vue.prototype.$set(state.newsList,state.newsIndex,state.newsList[state.newsIndex])
         }
-
     },
-
     // 异步获取数据
     actions:{
         getHomeList ({commit, state}, params) {

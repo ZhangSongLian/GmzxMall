@@ -1,5 +1,4 @@
 import { Cookie } from '@/utils/storage'
-// import { Cookie } from '../../utils/storage'
 import axios from '../../utils/https';
 
 const user = {
@@ -12,9 +11,9 @@ const user = {
     },
     
     actions:{
-        login({ commit },data){
+        login({ commit },params){
             return new Promise((resolve,reject)=>{
-                axios.post('/login',data)
+                axios.post('/login',params)
                 .then( res => {
                     console.log(res.data)
                     commit('LOGIN',res.data) 
@@ -32,7 +31,7 @@ const user = {
     mutations:{
         // 获取state中的数据
         LOGIN(state,data){
-            state.user={
+            state.user = {
                name: data.username,
                headImg:require('../../assets/img/headimg.png')
             }
