@@ -25,7 +25,9 @@
 .di { display: inline }
 .dib {display: inline-block;}
 .transparent { opacity: 0 }
-
+.pdt10 {padding: 10px 0;}
+.pd{padding: 20px}
+.border-bt{border-bottom: 1px solid #eee;}
 
 /*文字排版、颜色*/
 .f20 { font-size:20px }
@@ -122,7 +124,6 @@
     align-items: center;
     justify-content: space-around;
 }
-
 /* 垂直居中 */
 .df-c {
     display: flex;

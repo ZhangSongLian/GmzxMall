@@ -38,7 +38,7 @@
 		@submit="onSubmit"
 		v-if="cartList.length>0"
 		>
-		  <van-checkbox v-model="checked" checked-color="#d2235a"  @change="checkAll">全选</van-checkbox>
+		<van-checkbox v-model="checked" checked-color="#d2235a"  @change="checkAll">全选</van-checkbox>
 		</van-submit-bar>
 	</div>
 </template>
@@ -46,20 +46,16 @@
 <script>
 	import axios from 'axios' 
 	import { mapGetters } from 'vuex'
-	import HeaderNav from '../../components/header'
 	import { SubmitBar,Checkbox,CheckboxGroup,Toast,Dialog } from 'vant';
-
 	export default {
 		name:"shopCart",
-		 components:{
-				HeaderNav,
+		components:{
 		    	[SubmitBar.name]:SubmitBar,
 		    	[Checkbox.name]:Checkbox,
 		    	[CheckboxGroup.name]:CheckboxGroup,
 				[Toast.name]:Toast,
 				[Dialog.name]:Dialog
 		    },
-		    
 		data(){
 			return{
 				title:"购物车",

@@ -18,7 +18,7 @@
 
 <script>
 import { AddressEdit,Toast } from 'vant';
-import ArrowHeader from '../../components/ArrowHeader'
+import ArrowHeader from '../../../components/ArrowHeader'
 export default {
     name:'addressEdit',
     components:{

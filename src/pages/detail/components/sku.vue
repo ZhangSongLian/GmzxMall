@@ -8,7 +8,8 @@
                 <img :src="skuList.goodsimgs" alt="" class="productimg"/>
                 <div class="right">
                     <p :style="[priceStyle]">￥{{skuList.price}}</p>
-                    <p>请选择数量</p>
+                    <p class="specs"></p>
+                    <p>库存：有货</p>
                 </div>
             </div>
             <div class="botton-line"></div>

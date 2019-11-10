@@ -29,10 +29,8 @@
 			    <span>立即购买</span>
 			  </div> 
 		</div>
-
 		<gallary @close="handleCloseGallary" v-show="showGallary"></gallary>
 		<sku  @close="handleCloseSku" v-show="showSku" :skuList= "detailList" :id="id"></sku>
-		
 	</div>
 </template>
 
@@ -61,6 +59,8 @@ export default {
 			detailList: []
 		}
 	},
+	
+
 	computed:{
 		...mapGetters(['cartList','user']),
 	},
@@ -92,6 +92,7 @@ export default {
 		getDetailList(res){
 			res = res.data;
 			if(res){
+				console.log(res.goodsList)
 				// find()方法用于查找符合条件的第一个元素，如果找到了，返回这个元素，否则，返回undefined
 				this.detailList = res.goodsList.find(item => {
 					return item.id === this.id
@@ -109,8 +110,9 @@ export default {
 		}
 	},
 	mounted () {
-        this.getProduct();
-    }
+		this.getProduct();
+	}
+	
 }
 </script>
 

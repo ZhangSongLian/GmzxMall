@@ -6,6 +6,8 @@ const goodlist = {
         goodsList:[],
         bannerList:[],
         detailList: [],
+       
+       
        },
        getters: {},
        mutations: {
@@ -21,7 +23,7 @@ const goodlist = {
                 axios.get('/api/goodsList.json').then(function (response) {
                   commit('setGoodList',{
                     goodsList:response.data.goodsList,
-                    bannerList:response.data.bannerList,
+                    bannerList:response.data.bannerList
                   })
               })
             })

@@ -1,23 +1,6 @@
 <template>
 	<div class="container">
-		  <el-tabs :tab-position="tabPosition">
-		    <el-tab-pane v-for="item in goods" :label="item.title" :key="item.title">
-		    		<router-link tag="div" class="goods" v-for="(value,index) in item.lists" :key="value.id" :to="'/detail/'+value.id">
-	    			   <img class="imgs" :src="value.imgs" alt="">
-	    			   <div class="right">
-	    			   		<h3 class="title">{{value.name}}</h3>
-						    <span class="retailPrice">价格：￥{{value.price}}</span>
-						    <span class="counterPrice">￥{{value.oldprice}}</span>
-	    			   </div>
-    				</router-link>
-    				<div class="cate-title" v-if="item.lists">
-    					没有更多了
-    				</div>
-    				<div v-if="!item.lists" class="cate-title">
-    					暂还没有相关内容
-    				</div>
-		    </el-tab-pane>
-		  </el-tabs>
+		 
 	</div>
 </template>
 
@@ -28,47 +11,6 @@ export default {
 	name:"MallClassify",
 	data(){
 		return{
-			tabPosition: "left",
-			goods:[
-				{
-					title:"水光针",
-   					lists:[{
-   						id: 1,
-						name: "无针水光",
-						price: "680",
-						oldprice:"888",
-						imgs: "https://cdn.gmzx.com/images/wxapp/products/banner/wuZhengShuiGuang.jpg"
-   					},
-   					{
-   						id: 2,
-						name: "无针水光",
-						price: "680",
-						oldprice:"888",
-						imgs: "https://cdn.gmzx.com/images/wxapp/products/banner/wuZhengShuiGuang.jpg"
-   					}
-   					]
-				},
-				{
-					title:"除皱针",
-   					lists:[{
-   						id: 1,
-						name: "BOTOX除皱针单部位",
-						price: "680",
-						oldprice:"888",
-						imgs: "https://cdn.gmzx.com/images/wxapp/products/banner/zhuShe/BOTOXChuZhou.jpg"
-   					}]
-				},
-				{
-					title:"瘦脸针"
-				},
-				{
-					title:"玻尿酸"
-				},
-				{
-					title:"肉毒素"
-				}
-			
-			]
 			
 		}
 	},

@@ -4,11 +4,12 @@ import Router from 'vue-router'
 import UserLogin from '@/components/UserLogin'
 import layout from '@/pages/Layout/index'
 import { Toast } from 'vant';
-
+const chooseAddress = r => require.ensure([], () => r(require('../pages/address/chooseAddress')), 'chooseAddress')
+const addressEdit = r => require.ensure([], () => r(require('../pages/address/children/addressEdit')), 'addressEdit')
 Vue.use(Toast);
 Vue.use(Router)
 
-  const Routers = [
+const Routers = [
       { 
         path: '/', 
         name: '首页', 
@@ -95,12 +96,23 @@ Vue.use(Router)
       component: (resolve) => require(['@/pages/order/orderList'], resolve)
    },
    { 
-    path: '/address', 
-    name: '收货地址', 
+    path: '/chooseAddress', 
+    name: '我的收货地址', 
     meta: { 
-        login: true
+      login: true,
     },
-    component: (resolve) => require(['@/pages/address/index'], resolve)
+    component: chooseAddress,
+    // children:[
+    //   {
+    //     path: 'addressEdit', //添加地址
+    //     component: addressEdit
+    //   }
+    // ]   
+  },
+  { 
+    path: '/addressEdit', 
+    name: '添加地址', 
+    component: addressEdit 
   },
   { 
     path: '/Feedback', 

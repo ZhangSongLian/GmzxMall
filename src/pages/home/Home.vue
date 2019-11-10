@@ -3,7 +3,7 @@
      	<header-nav :title="title"></header-nav>
         <top-bar></top-bar>
         <!-- loading -->
-        <div class="load">
+        <div class="load df-c">
              <van-loading type="spinner" color="#1989fa" v-show="newsLoading"/>
         </div>
         <!-- content -->
@@ -32,23 +32,21 @@
                 </section>
             </swiper-slide>
         </swiper>
-
+        <backTop></backTop>
     </article>
 </template>
 
 <script>
+
 import axios from 'axios';
 import { mapGetters } from 'vuex'
-import HeaderNav from '../../components/header'
 import topBar from './components/topBar'
-import NoneData from '../../components/NoneData'
 import { Icon,Loading } from 'vant';
+
 export default {
     name:'home',
     components:{   	
-        HeaderNav,
         topBar,
-        NoneData,
        [Icon.name]:Icon,
        [Loading.name]:Loading
     },
@@ -116,15 +114,10 @@ export default {
         height: 40%;
         position: absolute;
         left: 0;top: 110px;
-        display: flex;
-        align-items: center;
-        justify-content: center;     
     }
     #swiper-container {
             width: 100%;
-            height: calc(100% - 40px);
-            // height: 1200px;
-            padding-bottom: 85px;
+            height: calc(100% - 65px);
             .swiper-box {
                width: 100%;
                 height: 100%;
@@ -164,7 +157,6 @@ export default {
                 .diary-text{
                     font-size: 28px;
                     line-height: 42px;
-                    
                 }
                 .diary-pic{
                     padding: 20px 0;

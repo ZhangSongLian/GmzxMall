@@ -24,25 +24,24 @@
 		</section>
 		<section :class="{ mgbottom: isShow }" class="clearfix"> 
 	   		<goods-list v-for="item in orderListSort" :info = item :key="item.id" ></goods-list>
+			<NoneData v-if="orderListSort.length>0"></NoneData>
 		</section>
+		<backTop></backTop>
   	</div>
 </template>
 
 <script>
 
-import HeaderNav from '../../components/header'
+
 import Swiper from '../../components/Swiper'
 import GoodsList from './components/goodsList'
-
 import { mapGetters } from 'vuex'
 import axios from 'axios' 
 export default {
     name:'Home',
     components:{
-    	HeaderNav,
-    	Swiper,
+		Swiper,
     	GoodsList
-        
 	},
 	computed:{
 		...mapGetters(['bannerList']),

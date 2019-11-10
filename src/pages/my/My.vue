@@ -46,11 +46,10 @@ export default {
             title:"个人中心",
             images:require('../../assets/img/xm3.png'),
             posts:[
-                {id:0,title:'我的收货地址',icon:'location-o',path:'/address'},
+                {id:0,title:'我的收货地址',icon:'location-o',path:'/chooseAddress'},
                 {id:1,title:'购物车',icon:'shopping-cart-o',path:'/cart'},
                 {id:2,title:'用户反馈',icon:'user-o',path:'/Feedback'},
                 ],
-
             resList: [
                 { icon: 'paid', title: '待付款' },
                 { icon: 'logistics', title: '待收货' },

@@ -2,14 +2,20 @@
 <div>
     <arrow-header :title="title"></arrow-header>
     <div class="container">
-        <router-link to="/address">
-            <van-cell title="新增收获地址" icon="plus">
-            <van-icon
-                slot="right-icon"
-                name="arrow"
-                style="line-height: inherit;"
-            />
-            </van-cell>
+        <router-link to="/chooseAddress">
+            <div class="addressText" v-if="!choosedAddress">
+                <span class="name">张三</span> <span class="phone">13000000000 </span>
+                <div class="pd10">浙江省杭州市西湖区文三路 138 号东方通信大厦 7 楼 501 室</div>
+            </div>
+            <div  v-else>
+                <van-cell title="新增收获地址" icon="location-o">
+                <van-icon
+                    slot="right-icon"
+                    name="arrow"
+                    style="line-height: inherit;"
+                />
+                </van-cell>
+            </div>
         </router-link>  
         <div class="content-list">
              <div class="info">
@@ -53,7 +59,8 @@ export default {
         [Cell.name]:Cell,
         [CellGroup.name]:CellGroup,
         [SubmitBar.name]:SubmitBar,
-        [Toast.name]:Toast
+        [Toast.name]:Toast,
+      
     },
     data(){
         return {
@@ -61,15 +68,15 @@ export default {
             //query传参接收 
             id: parseInt(this.$route.query.queryId),
             count:this.$route.query.count,
-            detailList:[]
+            detailList:[],
+            choosedAddress:[]
+            
         }
     },
-    // computed:{
-    //     ...mapGetters(['detailList']),
-    // },
     methods:{
         onSubmit(){
-            console.log(this.id)
+            // console.log(this.id)
+            alert("购买成功")
         },
         getProduct (){
             return new Promise((resolve, reject) => {
@@ -87,10 +94,6 @@ export default {
     },
     created(){
         this.getProduct ();
-        //  this.$store.dispatch({
-        //     type: 'loadGoodList',
-        //     id: this.id
-        //  })
     }
     
 }
@@ -102,7 +105,15 @@ export default {
     align-items: center;
     }
     .container {
-        padding: 20px;
+        padding: 20px 0;
+        .addressText {
+            background: #fff;
+            padding: 20px 20px 0 20px;
+            span {
+                font-size: 32px;
+                font-weight: 600;
+            }
+        }
         .content-list {
             background: #fff;
              padding: 30px;
