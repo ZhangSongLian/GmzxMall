@@ -41,6 +41,7 @@ export const Cookie = {
 };
 //localStorage使用技巧
 //2.单词太长，不方便书写，可以利用 var storage=window.localStorage;
+在localStorage中只能以字符串的形式进行保存，所以在存入localStorage之前，我们需要将json格式的数据进行转化成string格式。
 //3.字符串和原始类型需要通过JSON.stringfy转字符串，通过JSON.parse转成对象
 //4.通过封装方法实现来回转化
 export const Local = {
