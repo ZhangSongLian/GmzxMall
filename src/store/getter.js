@@ -1,25 +1,24 @@
 const getters = {
-    //首页
-    newsList: state => state.home.newsList,
-    newsLoading: state => state.home.newsLoading,
-    homeNewsIndex: state => state.home.newsIndex,
-    homeNewsPrevIndex: state => state.home.newsPrevIndex,
-    homeEnd: state => state.home.end,
+  // 首页
+  newsList: state => state.home.newsList,
+  newsLoading: state => state.home.newsLoading,
+  homeNewsIndex: state => state.home.newsIndex,
+  homeNewsPrevIndex: state => state.home.newsPrevIndex,
+  homeEnd: state => state.home.end,
+  // 商城
+  goodsList: state => state.goodlist.goodsList,
+  bannerList: state => state.goodlist.bannerList,
+  // 商品详情页
+  detailList: state => state.goodlist.detailList,
+  // 文章详情页
+  articleInfo: state => state.article.articleInfo,
 
-    //商城
-    goodsList:state => state.goodlist.goodsList,
-    bannerList:state => state.goodlist.bannerList,
-    //商品详情页
-    detailList:state => state.goodlist.detailList,
-    //文章详情页
-    articleInfo:state => state.article.articleInfo,
-
-    //购物车
-    cartList:state => state.cart.cartList,
-    cartInfo:state => state.cart.cartInfo,
-    // 个人中心
-    isLogin: state => state.user.isLogin,
-    user:state => state.user.user
+  // 购物车
+  cartList: state => state.cart.cartList,
+  cartInfo: state => state.cart.cartInfo,
+  // 个人中心
+  isLogin: state => state.user.isLogin,
+  user: state => state.user.user
 }
 
 export default getters

@@ -5,7 +5,7 @@ export function getFilterArray(arr) {
         return self.indexOf(ele) === index
     })
 }
-//方法二、把数组的值作为对象的键
+<!-- //方法二、把数组的值作为对象的键 -->
 export function getFilterArray (arr) {
     let res =[];
     let ob = {};
@@ -20,5 +20,4 @@ export function getFilterArray (arr) {
     return res;
 }
 
-//排序
 

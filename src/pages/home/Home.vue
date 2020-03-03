@@ -25,7 +25,7 @@
                                 </div>
                             </div>
                             <div class="diary-text mult_line_ellipsis">{{item.intro}}</div>
-                            <div class="diary-pic"><img :src="item.images" alt="" /></div>	
+                            <div class="diary-pic"><img :src="item.images" alt="" /></div>
                         </li>
                     </ul>
                      <NoneData v-if="news.list"></NoneData>
@@ -38,60 +38,59 @@
 
 <script>
 
-import axios from 'axios';
+import axios from 'axios'
 import { mapGetters } from 'vuex'
 import topBar from './components/topBar'
-import { Icon,Loading } from 'vant';
+import { Icon, Loading } from 'vant'
 
 export default {
-    name:'home',
-    components:{   	
-        topBar,
-       [Icon.name]:Icon,
-       [Loading.name]:Loading
-    },
-    data(){
-        return{
-        	title:"首页"
-        }
-    },
-   methods: {
-       async end () {
-                this.$store.state.home.newsIndex = this.swiper.activeIndex //当前活动块的索引
-                this.$store.state.home.newsPrevIndex = this.swiper.previousIndex //返回上一个活动块的索引，切换前的索引
-                let data = await this.$store.dispatch('getHomeList', this.newsList[this.homeNewsIndex])
-            },
-            
-        //跳转到详情页
-        articleDetail(route,id){
-            //  this.$router.push({name: '文章详情', params: {id: id}})
-            route.push('/Article/'+id)
-        }
-   },
-
- computed: {
-        swiper () {
-            return this.$refs['swiper-wrapper'].swiper
-        },
-        ...mapGetters([
-                'newsList',
-                'newsLoading',
-                'homeNewsIndex',
-                'homeNewsPrevIndex',
-                'homeEnd'
-        ])
-    },
-
-   watch: {  //监听homeNewsIndex的变化也就是滑块的index
-        homeNewsIndex () {
-            this.swiper.slideTo(this.homeNewsIndex)
-        }
-    },
-
-    created () {
-         this.$store.dispatch('getHomeList', this.newsList[this.homeNewsIndex])
+  name: 'home',
+  components: {
+    topBar,
+    [Icon.name]: Icon,
+    [Loading.name]: Loading
+  },
+  data () {
+    return {
+      title: '首页'
     }
-    
+  },
+  methods: {
+    async end () {
+      this.$store.state.home.newsIndex = this.swiper.activeIndex // 当前活动块的索引
+      this.$store.state.home.newsPrevIndex = this.swiper.previousIndex // 返回上一个活动块的索引，切换前的索引
+      const data = await this.$store.dispatch('getHomeList', this.newsList[this.homeNewsIndex])
+    },
+
+    // 跳转到详情页
+    articleDetail (route, id) {
+      //  this.$router.push({name: '文章详情', params: {id: id}})
+      route.push('/Article/' + id)
+    }
+  },
+  computed: {
+    swiper () {
+      return this.$refs['swiper-wrapper'].swiper
+    },
+    ...mapGetters([
+      'newsList',
+      'newsLoading',
+      'homeNewsIndex',
+      'homeNewsPrevIndex',
+      'homeEnd'
+    ])
+  },
+
+  watch: { // 监听homeNewsIndex的变化也就是滑块的index
+    homeNewsIndex () {
+      this.swiper.slideTo(this.homeNewsIndex)
+    }
+  },
+
+  created () {
+    this.$store.dispatch('getHomeList', this.newsList[this.homeNewsIndex])
+  }
+
 }
 </script>
 
@@ -122,7 +121,7 @@ export default {
                width: 100%;
                 height: 100%;
                 overflow-y: scroll;
-                .item { 
+                .item {
                   padding: 0 20px;
                   margin-top: 10px;
                  .diary-top {
@@ -146,12 +145,12 @@ export default {
                             img {
                                 border-radius: 50%;
                             }
-                        } 
+                        }
                     }
                     .right {
                         width:258px;
                         color: #a6a6a6;
-                        &:extend(.flex); 
+                        &:extend(.flex);
                     }
                 }
                 .diary-text{
@@ -162,7 +161,7 @@ export default {
                     padding: 20px 0;
                     width: 707px;
                     height: 349px;
-                    
+
                 }
             }
         }

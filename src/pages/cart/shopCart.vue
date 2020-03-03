@@ -9,7 +9,7 @@
 					</router-link>
 				</div>
 			</div>
-			
+
 			<div v-if="cartList.length>0">
 				<h2 class="title">购物车列表</h2>
 				<div class="goods" v-for="(item,index) in cartList" :key="item.id" @click.self="toDetialPage(item.id)">
@@ -44,118 +44,116 @@
 </template>
 
 <script>
-	import axios from 'axios' 
-	import { mapGetters } from 'vuex'
-	import { SubmitBar,Checkbox,CheckboxGroup,Toast,Dialog } from 'vant';
-	export default {
-		name:"shopCart",
-		components:{
-		    	[SubmitBar.name]:SubmitBar,
-		    	[Checkbox.name]:Checkbox,
-		    	[CheckboxGroup.name]:CheckboxGroup,
-				[Toast.name]:Toast,
-				[Dialog.name]:Dialog
-		    },
-		data(){
-			return{
-				title:"购物车",
-				checked:false,
-				checkModel:[],
-			}
-		},
-		computed:{
-			...mapGetters(['isLogin','user','cartList','cartInfo']),
-			productDictList(){
-				return this.$store.getters.productDictList
-			},
-			//计算总价
-			totalPrice(){
-				let i, total = 0;
-				this.cartList.forEach(item => {
-					if(this.checkModel.indexOf(item.id)>-1){
-						total += this.productDictList[item.id].price * item.count;
-					}      
-                });
-				return total*100
-			}
-		},
-		watch:{
-			checkModel(val){ //监听checkModel属性，当其长度 ===input元素时 全选按钮选中，否则取消
-				console.log(val)
-				if(val.length === this.cartList.length){
-					this.checked= true;
-				}else{
-					this.checked= false;
-				}
-			}
-		},
-		
-		methods:{
-			handleAdd(index){
-				this.cartList[index].count++;
-			},
-			handleReduce(index){
-				if(this.cartList[index].count>1){
-					this.cartList[index].count--;
-				}
-			},
-			del(index){
-				Dialog.confirm({
-				title: '提示',
-				message: '确定移除该商品'
-				}).then(() => {
-					this.cartList.splice(index,1);
-					Toast('删除成功');
-				}).catch(() => {
-				// on cancel
-				});	
-			},
-			// 全选
-			checkAll(ev) {
-				this.checkModel = ev ?
-					this.cartList.map(item => item.id) :
-					[]
-			},
-			onSubmit(){
-				//  let productSkuId = []; //选中的sku id
-   				//  let proNum = []; //数量
-				//  var checkedGoods = this.cartList.filter(function(element, index, array) {
-				// 	 console.log(element,index+1)
-				// 	if (element.checked == true) {
-				// 		productSkuId.push(element.id);
-				// 		proNum.push( element.count );
-				// 		return true;
-				// 	} else {
-				// 		return false;
-				// 	}
-				// });
-				// console.log(productSkuId)
-				
-				if(this.user.name){
-					if(this.checkModel.length <= 0){
-						Toast('请选择商品');
-						return false;
-					}else {
-					this.cartList.forEach(item =>{
-						console.log(item)
-						alert("★★★您购买的商品是：" + this.productDictList[item.id].name);
-					})
-					
-					}
-				}else {
-					this.$store.state.user.isLogin = true
-				}
-				
-			},
-			toDetialPage(id){ //动态路由跳转页面
-				this.$router.push({path: '/detail/'+id,params: {type: id}})
-			}
+import axios from 'axios'
+import { mapGetters } from 'vuex'
+import { SubmitBar, Checkbox, CheckboxGroup, Toast, Dialog } from 'vant'
+export default {
+  name: 'shopCart',
+  components: {
+		  [SubmitBar.name]: SubmitBar,
+		  [Checkbox.name]: Checkbox,
+		  [CheckboxGroup.name]: CheckboxGroup,
+    [Toast.name]: Toast,
+    [Dialog.name]: Dialog
+  },
+  data () {
+    return {
+      title: '购物车',
+      checked: false,
+      checkModel: []
+    }
+  },
+  computed: {
+    ...mapGetters(['isLogin', 'user', 'cartList', 'cartInfo']),
+    productDictList () {
+      return this.$store.getters.productDictList
+    },
+    // 计算总价
+    totalPrice () {
+      let i; let total = 0
+      this.cartList.forEach(item => {
+        if (this.checkModel.indexOf(item.id) > -1) {
+          total += this.productDictList[item.id].price * item.count
+        }
+      })
+      return total * 100
+    }
+  },
+  watch: {
+    checkModel (val) { // 监听checkModel属性，当其长度 ===input元素时 全选按钮选中，否则取消
+      console.log(val)
+      if (val.length === this.cartList.length) {
+        this.checked = true
+      } else {
+        this.checked = false
+      }
+    }
+  },
 
-		},
-		 mounted(){
-			this.$store.dispatch('getCart')
-		}
-	}
+  methods: {
+    handleAdd (index) {
+      this.cartList[index].count++
+    },
+    handleReduce (index) {
+      if (this.cartList[index].count > 1) {
+        this.cartList[index].count--
+      }
+    },
+    del (index) {
+      Dialog.confirm({
+        title: '提示',
+        message: '确定移除该商品'
+      }).then(() => {
+        this.cartList.splice(index, 1)
+        Toast('删除成功')
+      }).catch(() => {
+        // on cancel
+      })
+    },
+    // 全选
+    checkAll (ev) {
+      this.checkModel = ev
+        ? this.cartList.map(item => item.id)
+        : []
+    },
+    onSubmit () {
+      //  let productSkuId = []; //选中的sku id
+   				//  let proNum = []; //数量
+      //  var checkedGoods = this.cartList.filter(function(element, index, array) {
+      // 	 console.log(element,index+1)
+      // 	if (element.checked == true) {
+      // 		productSkuId.push(element.id);
+      // 		proNum.push( element.count );
+      // 		return true;
+      // 	} else {
+      // 		return false;
+      // 	}
+      // });
+      // console.log(productSkuId)
+
+      if (this.user.name) {
+        if (this.checkModel.length <= 0) {
+          Toast('请选择商品')
+          return false
+        } else {
+          this.cartList.forEach(item => {
+            console.log(item)
+            alert('★★★您购买的商品是：' + this.productDictList[item.id].name)
+          })
+        }
+      } else {
+        this.$store.state.user.isLogin = true
+      }
+    },
+    toDetialPage (id) { // 动态路由跳转页面
+      this.$router.push({ path: '/detail/' + id, params: { type: id } })
+    }
+
+  },
+		 mounted () {
+    this.$store.dispatch('getCart')
+  }
+}
 </script>
 
 <style lang="less" scoped>
@@ -184,7 +182,7 @@
 		color: red;
 		text-decoration: underline;
 	}
-	
+
 }
 .title {
 	padding: 20px;
@@ -215,8 +213,7 @@
 			justify-content: space-around;
 		}
 	}
-	
-}
 
+}
 
 </style>

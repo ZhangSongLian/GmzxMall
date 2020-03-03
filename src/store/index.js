@@ -9,18 +9,17 @@ import cart from './modules/cart'
 import user from './modules/userCenter'
 import getters from './getter'
 
-
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-    modules: {
-      goodlist,
-      home,
-      article,
-      cart,
-      user
-    },
-    getters
+  modules: {
+    goodlist,
+    home,
+    article,
+    cart,
+    user
+  },
+  getters
 })
 
 export default store

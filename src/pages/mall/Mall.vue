@@ -1,11 +1,11 @@
 <template>
-    <div> 
+    <div>
     	<header-nav :title="title"></header-nav>
     	<swiper :banner-list="bannerList"></swiper>
 		<section class="sort">
 			 <div class="list-control-order">
-                <span>排序：</span>
-                <span class="list-control-order-item" 
+													<span>排序：</span>
+													<span class="list-control-order-item"
 				:class="{on:order === ''}"
 				 @click="handleOrderDefault"
 				 >默认</span>
@@ -22,77 +22,75 @@
                 </span>
             </div>
 		</section>
-		<section :class="{ mgbottom: isShow }" class="clearfix"> 
+		<section :class="{ mgbottom: isShow }" class="clearfix">
 	   		<goods-list v-for="item in orderListSort" :info = item :key="item.id" ></goods-list>
 			<NoneData v-if="orderListSort.length>0"></NoneData>
 		</section>
 		<backTop></backTop>
-  	</div>
+   </div>
 </template>
 
 <script>
 
-
 import Swiper from '../../components/Swiper'
 import GoodsList from './components/goodsList'
 import { mapGetters } from 'vuex'
-import axios from 'axios' 
+import axios from 'axios'
 export default {
-    name:'Home',
-    components:{
-		Swiper,
+  name: 'Home',
+  components: {
+    Swiper,
     	GoodsList
-	},
-	computed:{
-		...mapGetters(['bannerList']),
-		list(){
-			return this.$store.state.goodlist.goodsList
-		},
-		// 价格销量排序
-		orderListSort(){
-			let list = [...this.list]; //(...)展开运算符可以展开数组
-			if(this.order !== ""){
-				if(this.order === "sales"){
-					list = list.sort((a,b) => b.sales - a.sales)
-				}else if(this.order === "price-asc"){
-					// 价格从小到大
-					list = list.sort((a,b) => a.price - b.price)
-				} else if(this.order === "price-desc"){
-					// 价格从大到小
-					list = list.sort((a,b) => b.price - a.price)
-				}
-			}
-			return list;
-		}
-	},
-    data(){
+  },
+  computed: {
+    ...mapGetters(['bannerList']),
+    list () {
+      return this.$store.state.goodlist.goodsList
+    },
+    // 价格销量排序
+    orderListSort () {
+      let list = [...this.list] // (...)展开运算符可以展开数组
+      if (this.order !== '') {
+        if (this.order === 'sales') {
+          list = list.sort((a, b) => b.sales - a.sales)
+        } else if (this.order === 'price-asc') {
+          // 价格从小到大
+          list = list.sort((a, b) => a.price - b.price)
+        } else if (this.order === 'price-desc') {
+          // 价格从大到小
+          list = list.sort((a, b) => b.price - a.price)
+        }
+      }
+      return list
+    }
+  },
+  data () {
     	return {
-			title:"广美商城",
-			order:'',
-			isShow:true
+      title: '广美商城',
+      order: '',
+      isShow: true
     	}
-	},
-	methods:{
-		// 默认
-		handleOrderDefault(){
-			this.order = "";
-		},
-		handleOrderSales(){
-			this.order = "sales";
-		},
-		handleOrderPrice(){
-			if(this.order === 'price-desc'){
-				this.order = 'price-asc'
-			}else {
-				this.order = 'price-desc'
-			}
-		},
-	},
-	async created(){
-		await this.$store.dispatch('loadGoodList');
-	}
-		
- 
+  },
+  methods: {
+    // 默认
+    handleOrderDefault () {
+      this.order = ''
+    },
+    handleOrderSales () {
+      this.order = 'sales'
+    },
+    handleOrderPrice () {
+      if (this.order === 'price-desc') {
+        this.order = 'price-asc'
+      } else {
+        this.order = 'price-desc'
+      }
+    }
+  },
+  async created () {
+    await this.$store.dispatch('loadGoodList')
+  }
+
 }
 </script>
 
@@ -121,6 +119,5 @@ export default {
 	.mgbottom {
 		margin-bottom: 135px;
 	}
-	
 
 </style>

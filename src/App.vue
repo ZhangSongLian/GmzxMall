@@ -10,17 +10,15 @@
 import { mapGetters } from 'vuex'
 import Login from './components/Login'
 export default {
- components: { Login },
-  name:'App',
+  components: { Login },
+  name: 'App',
   computed: {
     ...mapGetters([
-            'isLogin'
-      ])
+      'isLogin'
+    ])
   }
+}
 
-
- }
- 
 </script>
 
 <style>

@@ -1,7 +1,6 @@
 const ls = window.localStorage;
 const ss = window.sessionStorage;
 
-//对cookie、localStorage、sessionStorage的封装
 export const Cookie = {
     get (key) {
         let arr = document.cookie.split('; ')
@@ -38,12 +37,8 @@ export const Cookie = {
         }
         
     }
-};
-//localStorage使用技巧
-//2.单词太长，不方便书写，可以利用 var storage=window.localStorage;
-在localStorage中只能以字符串的形式进行保存，所以在存入localStorage之前，我们需要将json格式的数据进行转化成string格式。
-//3.字符串和原始类型需要通过JSON.stringfy转字符串，通过JSON.parse转成对象
-//4.通过封装方法实现来回转化
+}
+
 export const Local = {
     get(key) {
         if (key) return JSON.parse(ls.getItem(key))
@@ -56,7 +51,7 @@ export const Local = {
                 ls.setItem(i, JSON.stringify(setting[i]))
             }
         } else {
-
+            ls.setItem(key, JSON.stringify(val))
         }
     },
     remove(key) {
@@ -66,7 +61,6 @@ export const Local = {
         ls.clear()
     }
 };
-
 
 export const Session = {
     get(key) {
@@ -90,9 +84,3 @@ export const Session = {
         ss.clear()
     }
 }
-
-
-// web storage和cookie的区别
-// web storage 提供了setItem、getItem、removeItem、clear方法，而cookie需要前端开发者自己封装setCookie和getCookie
-// cookie的作用是与服务器进行交互，数据始终在同源的http请求中携带，在浏览器和服务器之间来回传递
-// 而web Storage仅仅是为了本地存储数据而设计的
